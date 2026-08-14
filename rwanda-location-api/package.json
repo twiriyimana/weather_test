@@ -1,0 +1,20 @@
+{
+  "name": "rwanda-location-api",
+  "version": "1.0.0",
+  "description": "Rwanda Location & Weather API",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "init-db": "node src/scripts/initDb.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-rate-limit": "^6.10.0",
+    "node-cache": "^5.1.2"
+  }
+}

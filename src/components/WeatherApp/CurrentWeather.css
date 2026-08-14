@@ -1,0 +1,87 @@
+.current-weather-card {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-radius: 24px;
+  padding: 24px;
+  background: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.current-weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.city-name {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.weather-condition {
+  font-size: 14px;
+  opacity: 0.9;
+  margin: 4px 0 0;
+}
+
+.weather-icon-large {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.current-weather-body {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.temperature-large {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.date-time {
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.detail-text {
+  font-size: 12px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .current-weather-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .temperature-large {
+    font-size: 56px;
+  }
+
+  .weather-icon-large {
+    font-size: 40px;
+  }
+}
+
+.error-text {
+  color: #fca5a5;
+  font-size: 13px;
+  margin: 0;
+}

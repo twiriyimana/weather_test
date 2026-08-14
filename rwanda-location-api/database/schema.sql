@@ -1,0 +1,68 @@
+CREATE TABLE IF NOT EXISTS provinces (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS districts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  province_id INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS sectors (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  district_id INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS cells (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  sector_id INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS locations (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  country TEXT NOT NULL DEFAULT 'Rwanda',
+  country_code TEXT NOT NULL DEFAULT 'RW',
+  province TEXT,
+  district TEXT,
+  sector TEXT,
+  cell TEXT,
+  latitude REAL NOT NULL,
+  longitude REAL NOT NULL,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS search_history (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  query TEXT NOT NULL,
+  results_count INTEGER DEFAULT 0,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS weather_cache (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  cache_key TEXT UNIQUE NOT NULL,
+  data TEXT NOT NULL,
+  expires_at TEXT NOT NULL,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_locations_name ON locations(name);
+CREATE INDEX IF NOT EXISTS idx_locations_country_code ON locations(country_code);
+CREATE INDEX IF NOT EXISTS idx_locations_coordinates ON locations(latitude, longitude);
+CREATE INDEX IF NOT EXISTS idx_search_history_query ON search_history(query);
+CREATE INDEX IF NOT EXISTS idx_weather_cache_key ON weather_cache(cache_key);
+CREATE INDEX IF NOT EXISTS idx_weather_cache_expires ON weather_cache(expires_at);

@@ -1,0 +1,25 @@
+.weather-app {
+  min-height: 100vh;
+  background-image: url('./assets/climate.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #e2e8f0;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.weather-content {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 16px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .weather-content {
+    padding: 32px 24px 120px;
+  }
+}
